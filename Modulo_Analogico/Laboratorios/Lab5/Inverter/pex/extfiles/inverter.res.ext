@@ -1,0 +1,33 @@
+scale 1000 1 0.5
+rnode "VSS.t1" 0 0 40 300 0
+rnode "VSS.t0" 0 0 140 300 0
+rnode "VSS.n0" 0 0 -182 300 0
+rnode "VSS.n1" 0 0 83 -182 0
+rnode "VSS" 0 0 126 -281 0
+resist "VSS.n1" "VSS.n0" 1.54421
+resist "VSS.n0" "VSS.t1" 2.1
+resist "VSS" "VSS.n1" 2.25843
+resist "VSS" "VSS.n1" 2.45782
+resist "VSS.n0" "VSS.t0" 596.007
+rnode "Vout.t0" 0 0 240 1880 0
+rnode "Vout.t1" 0 0 240 300 0
+rnode "Vout" 0 0 331 1136 0
+resist "Vout" "Vout.t0" 3.76215
+resist "Vout" "Vout.t1" 3.92836
+rnode "VDD.t1" 0 0 40 1880 0
+rnode "VDD.t0" 0 0 140 1880 0
+rnode "VDD.n0" 0 0 -190 1880 0
+rnode "VDD.n1" 0 0 79 2354 0
+rnode "VDD" 0 0 117 2435 0
+resist "VDD.n1" "VDD.n0" 1.54384
+resist "VDD.n0" "VDD.t1" 2.02
+resist "VDD" "VDD.n1" 2.25615
+resist "VDD" "VDD.n1" 2.46009
+resist "VDD.n0" "VDD.t0" 379.232
+rnode "Vin.t0" 0 0 140 1880 0
+rnode "Vin.t1" 0 0 140 300 0
+rnode "Vin" 0 0 151 1143 0
+resist "Vin" "Vin.t0" 27.4084
+resist "Vin" "Vin.t1" 27.4569
+device msubckt nfet_03v3 40 0 41 1  "VSS.t0" "Vin.t1" 400 0 "VSS.t1" 600 73200,1444 "Vout.t1" 600 73200,1444
+device msubckt pfet_03v3 40 1580 41 1581  "VDD.t0" "Vin.t0" 400 0 "VDD.t1" 600 78000,1460 "Vout.t0" 600 78000,1460

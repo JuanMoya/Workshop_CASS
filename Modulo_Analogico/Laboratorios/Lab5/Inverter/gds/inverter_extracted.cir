@@ -1,0 +1,6 @@
+* Extracted by KLayout with GF180MCU LVS runset on : 31/08/2025 01:31
+
+.SUBCKT inverter VSS VDD Vout Vin
+M$1 Vout Vin VDD VDD pfet_03v3 L=1U W=3U AS=1.95P AD=1.95P PS=7.3U PD=7.3U
+M$2 Vout Vin VSS VSS nfet_03v3 L=1U W=3U AS=1.83P AD=1.83P PS=7.22U PD=7.22U
+.ENDS inverter

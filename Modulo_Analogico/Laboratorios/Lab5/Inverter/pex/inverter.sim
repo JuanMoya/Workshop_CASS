@@ -1,0 +1,8 @@
+| units: 0.5 tech: gf180mcuD format: MIT
+x Vin VDD Vout VDD s=78000,1460 d=78000,1460 l=200 w=600 x=40 y=1580 pfet_03v3
+x Vin VSS Vout VSS s=73200,1444 d=73200,1444 l=200 w=600 x=40 y=0 nfet_03v3
+R Vout 66
+R Vin 77
+C VDD0 2.9
+R VDD 1067
+R VSS 62

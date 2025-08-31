@@ -1,0 +1,27 @@
+* NGSPICE file created from inverter.ext - technology: gf180mcuD
+
+.subckt inverter Vin VDD VSS Vout
+X0 Vout.t0 Vin.t0 VDD.t1 VDD.t0 pfet_03v3 ad=1.95p pd=7.3u as=1.95p ps=7.3u w=3u l=1u
+X1 Vout.t1 Vin.t1 VSS.t1 VSS.t0 nfet_03v3 ad=1.83p pd=7.22u as=1.83p ps=7.22u w=3u l=1u
+R0 Vin Vin.t1 27.4574
+R1 Vin Vin.t0 27.4089
+R2 VDD.n0 VDD.t0 379.233
+R3 VDD VDD.n1 2.46059
+R4 VDD VDD.n1 2.25665
+R5 VDD.n0 VDD.t1 2.0205
+R6 VDD.n1 VDD.n0 1.54434
+R7 Vout Vout.t1 3.92886
+R8 Vout Vout.t0 3.76265
+R9 VSS.n0 VSS.t0 596.008
+R10 VSS VSS.n1 2.45832
+R11 VSS VSS.n1 2.25893
+R12 VSS.n0 VSS.t1 2.1005
+R13 VSS.n1 VSS.n0 1.54471
+C0 VDD Vin 0.37488f
+C1 Vin Vout 0.42614f
+C2 VDD Vout 0.27453f
+C3 Vout VSS 0.82054f
+C4 Vin VSS 0.99216f
+C5 VDD VSS 2.92787f
+.ends
+
