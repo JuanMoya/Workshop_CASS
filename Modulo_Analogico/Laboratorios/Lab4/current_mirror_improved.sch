@@ -1,5 +1,4 @@
- v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.7 file_version=1.2}
 G {}
 K {}
 V {}
@@ -119,10 +118,6 @@ N 1320 -440 1320 -400 {
 lab=#net3}
 N 1320 -520 1320 -500 {
 lab=out3}
-C {devices/code_shown.sym} 0 -100 0 0 {name=MODEL only_toplevel=true
-format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
-"}
 C {devices/code_shown.sym} 0 -550 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .temp 27
@@ -131,26 +126,17 @@ save all
 
 op
 write current_mirror_improved.raw
-dc Vout1 0 1.5 10m
+dc Vout1 0 3.3 10m
 plot i(viout1) vs v(out1)
-dc Vout2 0 1.5 10m
+dc Vout2 0 3.3 10m
 plot i(viout2) vs v(out2)
-dc Vout3 0 1.5 10m
+dc Vout3 0 3.3 10m
 plot i(viout3) vs v(out3)
 
 .endc
 "}
-C {devices/vsource.sym} 380 -370 0 0 {name=Vdd value=1.5}
+C {devices/vsource.sym} 380 -370 0 0 {name=Vdd value=3.3}
 C {devices/gnd.sym} 380 -280 0 0 {name=l3 lab=GND}
-C {devices/title.sym} 160 -30 0 0 {name=l5 author="(c) 2024 H. Pretl, Apache-2.0 license"}
-C {sg13g2_pr/sg13_lv_nmos.sym} 630 -370 0 1 {name=M1
-l=5u
-w=4u
-ng=2
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
 C {devices/launcher.sym} 500 -160 0 0 {name=h2
 descr="simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -162,30 +148,6 @@ tclcommand="set show_hidden_texts 1; xschem annotate_op"
 C {devices/isource.sym} 610 -490 0 0 {name=Ibias value=20u}
 C {devices/lab_pin.sym} 680 -370 0 1 {name=p1 sig_type=std_logic lab=v_gs}
 C {devices/lab_pin.sym} 380 -540 0 0 {name=p2 sig_type=std_logic lab=v_dd}
-C {sg13g2_pr/sg13_lv_nmos.sym} 800 -370 0 0 {name=M2
-l=5u
-w=2u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 1040 -370 0 0 {name=M3
-l=5u
-w=4u
-ng=2
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 1300 -370 0 0 {name=M4
-l=5u
-w=8u
-ng=4
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
 C {devices/vsource.sym} 940 -350 0 0 {name=Vout1 value=0.6
 }
 C {devices/vsource.sym} 1180 -350 0 0 {name=Vout2 value=0.6}
@@ -200,3 +162,66 @@ C {devices/lab_pin.sym} 1440 -520 0 1 {name=p9 sig_type=std_logic lab=out3}
 C {devices/ammeter.sym} 820 -470 0 0 {name=Viout1 savecurrent=true spice_ignore=0}
 C {devices/ammeter.sym} 1060 -470 0 0 {name=Viout2 savecurrent=true spice_ignore=0}
 C {devices/ammeter.sym} 1320 -470 0 0 {name=Viout3 savecurrent=true spice_ignore=0}
+C {symbols/nfet_03v3.sym} 630 -370 0 1 {name=M1
+L=0.28u
+W=1u
+nf=1
+m=1
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=nfet_03v3
+spiceprefix=X
+}
+C {symbols/nfet_03v3.sym} 800 -370 0 0 {name=M2
+L=0.28u
+W=0.22u
+nf=1
+m=1
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=nfet_03v3
+spiceprefix=X
+}
+C {symbols/nfet_03v3.sym} 1040 -370 0 0 {name=M3
+L=0.28u
+W=0.22u
+nf=1
+m=1
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=nfet_03v3
+spiceprefix=X
+}
+C {symbols/nfet_03v3.sym} 1300 -370 0 0 {name=M4
+L=0.28u
+W=0.22u
+nf=1
+m=1
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=nfet_03v3
+spiceprefix=X
+}
+C {devices/code_shown.sym} 10 -110 0 0 {name=MODELS only_toplevel=true
+format="tcleval( @value )"
+value="
+.include $::180MCU_MODELS/design.ngspice
+.lib $::180MCU_MODELS/sm141064.ngspice typical
+.lib $::180MCU_MODELS/smbb000149.ngspice typical
+"}

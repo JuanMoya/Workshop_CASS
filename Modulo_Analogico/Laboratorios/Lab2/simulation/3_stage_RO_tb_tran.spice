@@ -1,4 +1,4 @@
-** sch_path: /foss/designs/Workshop_CASS/Modulo_Analogico/Laboratorios/Lab5/RO/xschem/3_stage_RO_tb_tran.sch
+** sch_path: /foss/designs/Workshop_CASS/Modulo_Analogico/Laboratorios/Lab2/3_stage_RO_tb_tran.sch
 **.subckt 3_stage_RO_tb_tran
 x1 VDD VSS n1 3_stage_RO
 V1 VSS GND 0
@@ -20,7 +20,7 @@ V2 VDD VSS 3.3
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  3_stage_RO.sym # of pins=3
+* expanding   symbol:  /foss/designs/Workshop_CASS/Modulo_Analogico/Laboratorios/Lab2/3_stage_RO.sym # of pins=3
 ** sym_path: /foss/designs/Workshop_CASS/Modulo_Analogico/Laboratorios/Lab2/3_stage_RO.sym
 ** sch_path: /foss/designs/Workshop_CASS/Modulo_Analogico/Laboratorios/Lab2/3_stage_RO.sch
 .subckt 3_stage_RO VDD VSS n1

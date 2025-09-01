@@ -1,0 +1,40 @@
+** sch_path: /foss/designs/Workshop_CASS/Modulo_Analogico/Laboratorios/Lab1/dc_lv_nmos.sch
+**.subckt dc_lv_nmos
+Vgs net1 GND 1.65
+Vds net3 GND 3.3
+Vd net3 net2 0
+.save i(vd)
+XM1 net2 net1 GND GND nfet_03v3 L=0.28u W=1.8u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+**** begin user architecture code
+
+
+.temp 27
+.control
+save all
+save @m.xm1.m0[gm]
+save @m.xm1.m0[gds]
+save @m.xm1.m0[vth]
+save @m.xm1.m0[cgg]
+save @m.xm1.m0[cgd]
+save @m.xm1.m0[vdss]
+save @m.xm1.m0[fug]
+save @m.xm1.m0[rg]
+save @m.xm1.m0[sid]
+op
+write dc_lv_nmos.raw
+set appendwrite
+dc Vds 0 3.3 0.01 Vgs 0 3.3 0.1
+write dc_lv_nmos.raw
+quit
+.endc
+
+
+
+.include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

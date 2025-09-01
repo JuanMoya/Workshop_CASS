@@ -37,7 +37,7 @@ plot v(n1)
 .endc
 "}
 C {noconn.sym} 780 -290 0 1 {name=l2}
-C {3_stage_RO.sym} 460 -200 0 0 {name=X1}
+C {3_stage_RO.sym} 550 -210 0 0 {name=X1}
 C {capa-2.sym} 760 -260 0 0 {name=C1
 m=1
 value=10f
