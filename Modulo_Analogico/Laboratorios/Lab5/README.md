@@ -1,1 +1,1 @@
-This Laboratory runs LVS to PEX simulations for Inverter and ROs
+Simulaciones PEX del inversor y del oscilador en anillo. Se realizará el layout, se correrán los flujos de DRC y LVS, se extraerán los elementos parásitos y se realizará la simulación respectiva.
