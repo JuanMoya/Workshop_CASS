@@ -1,1 +1,1 @@
-En este laboratorio se extraerán las look-up tables asociadas al transistor PMOS y al NMOS.
+Simulaciones DC y transitoria del inversor y del oscilador en anillo.
