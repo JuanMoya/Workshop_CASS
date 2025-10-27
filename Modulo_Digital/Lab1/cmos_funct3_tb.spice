@@ -1,20 +1,19 @@
-V1 VDD 0 1.8
-V3 A 0 pulse 0 1.8 '0.495/ 100e6 ' '0.01/100e6 ' '0.01/100e6 ' '0.49/100e6 ' '1/100e6 '
-V2 B 0 pulse 0 1.8 '0.495/ 50e6 ' '0.01/50e6 ' '0.01/50e6 ' '0.49/50e6 ' '1/50e6 '
-V4 C 0 pulse 0 1.8 '0.495/ 25e6 ' '0.01/25e6 ' '0.01/25e6 ' '0.49/25e6 ' '1/25e6 '
-V5 D 0 pulse 0 1.8 '0.495/ 12.5e6 ' '0.01/12.5e6 ' '0.01/12.5e6 ' '0.49/12.5e6 ' '1/12.5e6 '
-X1 A B C D Q VDD 0 cmos_funct3
-
-
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.include "cmos_funct3 copy.spice"
+.include "cmos_funct3.spice"
+
+V1 VCC VSS DC 1.8
+V0 VSS GND 0
+V3 A VSS pulse 0 1.8 '0.495/ 100e6 ' '0.01/100e6 ' '0.01/100e6 ' '0.49/100e6 ' '1/100e6 '
+V2 B VSS pulse 0 1.8 '0.495/ 50e6 ' '0.01/50e6 ' '0.01/50e6 ' '0.49/50e6 ' '1/50e6 '
+V4 C VSS pulse 0 1.8 '0.495/ 25e6 ' '0.01/25e6 ' '0.01/25e6 ' '0.49/25e6 ' '1/25e6 '
+V5 D VSS pulse 0 1.8 '0.495/ 12.5e6 ' '0.01/12.5e6 ' '0.01/12.5e6 ' '0.49/12.5e6 ' '1/12.5e6 '
+X1 A B C D Q VCC VSS cmos_funct3
+
+
 
 .control
 tran 0.01n 80n
 plot A B+2 C+4 D+6 Q+8
 .endc
-
-** .GLOBAL VDD
-** .GLOBAL GND
 
 .end
